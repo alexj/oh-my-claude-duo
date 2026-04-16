@@ -72,8 +72,16 @@ cp "$SCRIPT_DIR/src/statusline.sh" "$INSTALL_DIR/"
 cp "$SCRIPT_DIR/src/update-usage.sh" "$INSTALL_DIR/"
 cp "$SCRIPT_DIR/src/fetch-code-usage.sh" "$INSTALL_DIR/"
 cp "$SCRIPT_DIR/src/fetch-pro-usage.sh" "$INSTALL_DIR/"
-cp "$SCRIPT_DIR/src/claude-statusline.omp.json" "$INSTALL_DIR/"
 cp "$SCRIPT_DIR/VERSION" "$INSTALL_DIR/"
+
+# Skip copying the JSON config if a symlink already exists — allows personal
+# configs managed outside this repo (e.g. a dotfiles repo) to stay in place
+JSON_DEST="$INSTALL_DIR/claude-statusline.omp.json"
+if [ -L "$JSON_DEST" ]; then
+    echo -e "${GREEN}✓ Skipped claude-statusline.omp.json (symlink detected — using personal config)${NC}"
+else
+    cp "$SCRIPT_DIR/src/claude-statusline.omp.json" "$JSON_DEST"
+fi
 
 echo -e "${GREEN}✓ Copied all scripts to $INSTALL_DIR${NC}"
 echo ""
