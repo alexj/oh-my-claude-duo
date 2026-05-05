@@ -6,6 +6,8 @@ A two-line Claude Code status line, forked from the excellent [oh-my-claude](htt
 
 This version adds a second line for the display of session and weekly limit data and provides visual progress bars in addition to the original percentage information.
 
+![Two-line version of Oh My Claude](https://github.com/alexj/oh-my-claude-duo/blob/main/docs/images/duo-display.png?raw=true)
+
 **Line 1:** Path · Git · Context window bar + percentage + tokens remaining · Model
 
 **Line 2:** 5h usage bar · 7d usage bar · Reset countdowns
