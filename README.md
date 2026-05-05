@@ -1,5 +1,4 @@
-# oh-my-claude-duo
-
+# Two-Line Claude Code Custom Status Line
 A two-line Claude Code status line, forked from the excellent [oh-my-claude](https://github.com/ssenart/oh-my-claude) by Stéphane Senart.
 
 ## What's different
