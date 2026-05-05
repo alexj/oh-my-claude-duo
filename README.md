@@ -28,19 +28,31 @@ Add to `~/.claude/settings.json`:
 {
   "statusLine": {
     "type": "command",
-    "command": "bash ~/.claude/oh-my-claude-duo/statusline.sh",
+    "command": "bash ~/.claude/oh-my-claude-duo/src/statusline.sh",
     "padding": 0
   }
 }
 ```
-
-The `claude-statusline.omp.json` theme file is managed separately in dotfiles and symlinked into place — see the [dotfiles repo](https://github.com/alexj/dotfiles).
 
 ### Dependencies
 
 - [oh-my-posh](https://ohmyposh.dev)
 - `jq`
 - `ccusage` (via `npx` or installed globally)
+
+## Layout options
+
+The default is the two-line layout. To use the single-line layout instead, add this to `~/.claude/settings.json`:
+
+```json
+{
+  "env": {
+    "OH_MY_CLAUDE_LAYOUT": "single"
+  }
+}
+```
+
+Remove it (or set the value to `"duo"`) to return to the two-line layout.
 
 ## Updating
 
