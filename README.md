@@ -8,12 +8,13 @@ This version adds a second line for the display of session and weekly limit data
 
 ![Two-line version of Oh My Claude](https://github.com/alexj/oh-my-claude-duo/blob/main/docs/images/duo-display.png?raw=true)
 
-**Line 1:** Path · Git · Context window bar + percentage + tokens remaining · Model
+**Line 1:** Current Directory > Git status > Context window usage, including percentage used and tokens remaining > Current Model
 
-**Line 2:** 5h usage bar · 7d usage bar · Reset countdowns
+**Line 2:** Session (5 hours) usage · Weekly (7 days) usage · Session reset countdown · Weekly reset 
 
-Color thresholds:
-- Context window: green < 75%, amber 75–89%, red ≥ 90%
+### Color thresholds:
+The context window and the session sections will change color based on usage:
+- Context window background: green < 75% used, amber 75–89%, red ≥ 90%
 - Pro usage: green < 80%, red ≥ 80% (independent per metric)
 
 ## Status Line Display
@@ -42,6 +43,7 @@ Color thresholds:
 †Pro usage bars are green below 80%, red at 80%+
 
 ### Single layout (opt-in)
+Note, this is the original version from [oh-my-claude](https://github.com/ssenart/oh-my-claude). See the Layout options section below.
 
 | Segment | Color | Description | Example |
 |---------|-------|-------------|---------|
