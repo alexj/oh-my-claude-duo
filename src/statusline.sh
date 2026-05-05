@@ -203,7 +203,8 @@ if [ -n "$pro_five_hour_resets" ] && [ -n "$pro_seven_day_resets" ]; then
 fi
 
 # Path to oh-my-posh config file
-config_file="$script_dir/claude-statusline.omp.json"
+layout="${OH_MY_CLAUDE_LAYOUT:-duo}"
+config_file="$script_dir/claude-statusline-${layout}.omp.json"
 
 # Use oh-my-posh to render the status line with clean environment
 env -i \
