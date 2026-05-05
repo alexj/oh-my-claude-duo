@@ -4,7 +4,7 @@ A two-line Claude Code status line, forked from the excellent [oh-my-claude](htt
 
 ## What's different
 
-The upstream oh-my-claude renders a single-line status bar. This fork adds a second line for Pro usage data, and exposes granular env vars to the oh-my-posh template so each metric can be styled independently.
+This version adds a second line for the display of session and weekly limit data and provides visual progress bars in addition to the original percentage information.
 
 **Line 1:** Path · Git · Context window bar + percentage + tokens remaining · Model
 
