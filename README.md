@@ -12,7 +12,7 @@ This version adds a second line for the display of session and weekly limit data
 **Line 2:** Session (5 hours) usage · Weekly (7 days) usage · Session reset countdown · Weekly reset 
 
 ### Color thresholds:
-The context window and the session sections will change color based on usage:
+The context window and the session sections change color based on usage:
 - Context window background: green < 75% used, amber 75–89%, red ≥ 90%
 - Pro usage: green < 80%, red ≥ 80% (independent per metric)
 
@@ -26,7 +26,7 @@ The context window and the session sections will change color based on usage:
 |---------|-------|-------------|---------|
 | **Path** | Orange | Current directory | `oh-my-claude-duo` |
 | **Git** | Yellow* | Branch and status | `main` |
-| **Context** | Teal | Usage bar + percentage + tokens remaining | `████░░ 24.7% 150k left` |
+| **Context** | Teal | Usage bar + percentage + tokens remaining | `████░░ 24.7% (150k)` |
 | **Model** | Blue | Current AI model | `Sonnet 4.6` |
 
 **Line 2**
@@ -35,7 +35,7 @@ The context window and the session sections will change color based on usage:
 |---------|-------|-------------|---------|
 | **5h Usage** | Green/Red† | 5-hour Pro usage bar + percentage | `▪▪▪▪▪▪▪░░░░░░░░░░░░░ 35%` |
 | **7d Usage** | Green/Red† | 7-day Pro usage bar + percentage | `▪▪░░░░░░░░░░░░░░░░░░ 10%` |
-| **Reset** | — | Time until 5h and 7d limits reset | `5h:2h1min 7d:Thu09:59` |
+| **Reset** | — | Time until limits reset | `5h: 3 hours 30 minutes 7d: Thu 09:59` |
 
 *Git segment color changes dynamically based on repository status (clean, dirty, ahead, behind, diverged)
 
