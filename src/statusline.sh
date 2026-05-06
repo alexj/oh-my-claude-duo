@@ -71,17 +71,15 @@ if [ "$usage" != "null" ]; then
     fi
 fi
 
-# Fetch usage data with automatic updates from ccusage
+# Fetch usage data - render from cache immediately, then kick off a background refresh
 cache_file="$script_dir/.usage_cache"
-cache_timeout=60
 update_script="$script_dir/update-usage.sh"
 
-# Check if cache exists and is fresh
-if [ -f "$cache_file" ]; then
-    cache_age=$(($(date +%s) - $(get_file_mtime "$cache_file")))
-    [ "$cache_age" -ge "$cache_timeout" ] && bash "$update_script" &>/dev/null &
+# Always trigger a background refresh after each render, unless one is already running
+! pgrep -f "update-usage.sh" > /dev/null 2>&1 && bash "$update_script" &>/dev/null &
 
-    # Read cache once and parse all values
+# Read cache for current render (may be stale on the very first render after startup)
+if [ -f "$cache_file" ]; then
     cache_json=$(cat "$cache_file" 2>/dev/null)
     session_tokens=$(echo "$cache_json" | jq -r '.code.session_tokens // 0')
     pro_five_hour_usage=$(echo "$cache_json" | jq -r '.pro.five_hour_pct // empty')
@@ -89,8 +87,6 @@ if [ -f "$cache_file" ]; then
     pro_five_hour_resets=$(echo "$cache_json" | jq -r '.pro.five_hour_resets_at // empty')
     pro_seven_day_resets=$(echo "$cache_json" | jq -r '.pro.seven_day_resets_at // empty')
 else
-    # No cache, trigger update and use empty data for now
-    bash "$update_script" &>/dev/null &
     session_tokens=""
     pro_five_hour_usage=""
     pro_seven_day_usage=""
