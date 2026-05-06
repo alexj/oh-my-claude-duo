@@ -14,7 +14,7 @@ This version adds a second line for the display of session and weekly limit data
 ### Color thresholds:
 The context window and the session sections change color based on usage:
 - Context window background: green < 75% used, amber 75–89%, red ≥ 90%
-- Pro usage: green < 80%, red ≥ 80% (independent per metric)
+- Pro usage progress dots: green < 80%, red ≥ 80% (independent per metric)
 
 ## Status Line Display
 
