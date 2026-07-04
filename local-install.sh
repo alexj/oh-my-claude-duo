@@ -1,7 +1,7 @@
 #!/bin/bash
 # Local installation script for oh-my-claude status line
 # This script is for local development - run after cloning the repository
-# For web-based installation, use: curl -s https://raw.githubusercontent.com/ssenart/oh-my-claude/main/install.sh | bash
+# For web-based installation, use: curl -s https://raw.githubusercontent.com/alexj/oh-my-claude-duo/main/install.sh | bash
 # Installs to ~/.claude/oh-my-claude/ and updates Claude Code settings
 
 set -e
@@ -74,14 +74,16 @@ cp "$SCRIPT_DIR/src/fetch-code-usage.sh" "$INSTALL_DIR/"
 cp "$SCRIPT_DIR/src/fetch-pro-usage.sh" "$INSTALL_DIR/"
 cp "$SCRIPT_DIR/VERSION" "$INSTALL_DIR/"
 
-# Skip copying the JSON config if a symlink already exists — allows personal
+# Skip copying a JSON config if a symlink already exists — allows personal
 # configs managed outside this repo (e.g. a dotfiles repo) to stay in place
-JSON_DEST="$INSTALL_DIR/claude-statusline.omp.json"
-if [ -L "$JSON_DEST" ]; then
-    echo -e "${GREEN}✓ Skipped claude-statusline.omp.json (symlink detected — using personal config)${NC}"
-else
-    cp "$SCRIPT_DIR/src/claude-statusline.omp.json" "$JSON_DEST"
-fi
+for layout_config in claude-statusline-duo.omp.json claude-statusline-single.omp.json; do
+    JSON_DEST="$INSTALL_DIR/$layout_config"
+    if [ -L "$JSON_DEST" ]; then
+        echo -e "${GREEN}✓ Skipped $layout_config (symlink detected — using personal config)${NC}"
+    else
+        cp "$SCRIPT_DIR/src/$layout_config" "$JSON_DEST"
+    fi
+done
 
 echo -e "${GREEN}✓ Copied all scripts to $INSTALL_DIR${NC}"
 echo ""
