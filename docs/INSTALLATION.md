@@ -90,12 +90,12 @@ Install directly from GitHub without cloning the repository:
 
 1. **Run the web installer**:
    ```bash
-   curl -s https://raw.githubusercontent.com/ssenart/oh-my-claude/main/install.sh | bash
+   curl -s https://raw.githubusercontent.com/alexj/oh-my-claude-duo/main/install.sh | bash
    ```
 
 2. **Custom installation directory** (optional):
    ```bash
-   curl -s https://raw.githubusercontent.com/ssenart/oh-my-claude/main/install.sh | bash -s -- -d ~/.custom/location
+   curl -s https://raw.githubusercontent.com/alexj/oh-my-claude-duo/main/install.sh | bash -s -- -d ~/.custom/location
    ```
 
 3. **The installer will**:
@@ -122,7 +122,8 @@ Install directly from GitHub without cloning the repository:
    ✓ update-usage.sh
    ✓ fetch-code-usage.sh
    ✓ fetch-pro-usage.sh
-   ✓ claude-statusline.omp.json
+   ✓ claude-statusline-duo.omp.json
+   ✓ claude-statusline-single.omp.json
    ✓ VERSION
 
    Installing oh-my-claude version 1.7.0
@@ -146,16 +147,16 @@ Install directly from GitHub without cloning the repository:
      1. Restart Claude Code (if running)
      2. Status line will appear automatically
 
-   Documentation: https://github.com/ssenart/oh-my-claude
+   Documentation: https://github.com/alexj/oh-my-claude-duo
    ```
 
-**Security Note**: The installer only writes to your home directory and never requests sudo access. You can review the script before running: [View install.sh](https://github.com/ssenart/oh-my-claude/blob/main/install.sh)
+**Security Note**: The installer only writes to your home directory and never requests sudo access. You can review the script before running: [View install.sh](https://github.com/alexj/oh-my-claude-duo/blob/main/install.sh)
 
 **Troubleshooting**:
 - If download fails: Check your internet connection and retry
 - If you prefer to review the script first:
   ```bash
-  curl -O https://raw.githubusercontent.com/ssenart/oh-my-claude/main/install.sh
+  curl -O https://raw.githubusercontent.com/alexj/oh-my-claude-duo/main/install.sh
   cat install.sh  # Review the script
   bash install.sh  # Run after review
   ```
@@ -166,8 +167,8 @@ If you prefer to clone the repository or are developing locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/ssenart/oh-my-claude.git
-   cd oh-my-claude
+   git clone https://github.com/alexj/oh-my-claude-duo.git
+   cd oh-my-claude-duo
    ```
 
 2. **Run the local installation script**:
@@ -231,12 +232,13 @@ If you prefer manual installation or need to customize the process:
 
 2. **Copy scripts**:
    ```bash
-   cd oh-my-claude
+   cd oh-my-claude-duo
    cp src/statusline.sh ~/.claude/oh-my-claude/
    cp src/update-usage.sh ~/.claude/oh-my-claude/
    cp src/fetch-code-usage.sh ~/.claude/oh-my-claude/
    cp src/fetch-pro-usage.sh ~/.claude/oh-my-claude/
-   cp src/claude-statusline.omp.json ~/.claude/oh-my-claude/
+   cp src/claude-statusline-duo.omp.json ~/.claude/oh-my-claude/
+   cp src/claude-statusline-single.omp.json ~/.claude/oh-my-claude/
    ```
 
 3. **Make scripts executable**:
@@ -328,7 +330,8 @@ cat ~/.claude/oh-my-claude/.usage_cache | jq .
 ├── update-usage.sh                  # Background usage updater
 ├── fetch-code-usage.sh              # Code session token fetcher
 ├── fetch-pro-usage.sh               # Pro usage fetcher (uses OAuth)
-├── claude-statusline.omp.json       # Oh-my-posh theme configuration
+├── claude-statusline-duo.omp.json   # Oh-my-posh theme (two-line, default)
+├── claude-statusline-single.omp.json # Oh-my-posh theme (single-line)
 └── .usage_cache                     # Usage cache (auto-generated)
 ```
 
@@ -511,7 +514,7 @@ To update to the latest version:
 
 1. **Pull latest changes**:
    ```bash
-   cd oh-my-claude
+   cd oh-my-claude-duo
    git pull origin main
    ```
 
@@ -526,7 +529,7 @@ The script will backup your current settings before updating.
 
 After successful installation:
 
-1. **Customize appearance**: Edit `~/.claude/oh-my-claude/claude-statusline.omp.json`
+1. **Customize appearance**: Edit `~/.claude/oh-my-claude/claude-statusline-duo.omp.json`
    - Change colors
    - Modify icons
    - Reorder segments
@@ -544,7 +547,7 @@ If you encounter issues:
 
 1. Check this troubleshooting guide first
 2. Review [STATUS_LINE_DOCUMENTATION.md](STATUS_LINE_DOCUMENTATION.md)
-3. Open an issue: https://github.com/ssenart/oh-my-claude/issues
+3. Open an issue: https://github.com/alexj/oh-my-claude-duo/issues
 
 ## Platform-Specific Notes
 

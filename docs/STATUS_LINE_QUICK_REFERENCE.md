@@ -24,11 +24,11 @@ cache_timeout=120  # Seconds between updates
 
 ### Change Segment Order
 
-Edit `~/.claude/claude-statusline.omp.json` and reorder the `segments` array.
+Edit `~/.claude/oh-my-claude/claude-statusline-duo.omp.json` and reorder the `segments` array.
 
 ### Change Colors
 
-Edit segment colors in `~/.claude/claude-statusline.omp.json`:
+Edit segment colors in `~/.claude/oh-my-claude/claude-statusline-duo.omp.json`:
 ```json
 {
   "background": "#hexcolor",
@@ -59,7 +59,8 @@ Edit segment colors in `~/.claude/claude-statusline.omp.json`:
 ├── update-usage.sh                  # Usage cache updater
 ├── fetch-code-usage.sh              # Code session token fetcher
 ├── fetch-pro-usage.sh               # Pro usage fetcher (uses OAuth)
-├── claude-statusline.omp.json       # Oh-my-posh theme
+├── claude-statusline-duo.omp.json   # Oh-my-posh theme (two-line, default)
+├── claude-statusline-single.omp.json # Oh-my-posh theme (single-line)
 └── .usage_cache                     # Cached usage data (JSON)
 
 _Note: OAuth credentials are auto-managed at `~/.claude/.credentials.json`_

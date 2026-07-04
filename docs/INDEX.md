@@ -21,12 +21,13 @@ Complete guide to the custom Claude Code status line implementation.
 ## File Structure
 
 ```
-~/.claude/
+~/.claude/oh-my-claude/
 ├── statusline.sh                       ← Main script
 ├── update-usage.sh                     ← Usage cache updater
 ├── fetch-code-usage.sh                 ← Code session token fetcher
 ├── fetch-pro-usage.sh                  ← Pro usage fetcher (uses OAuth)
-├── claude-statusline.omp.json          ← Oh-my-posh theme
+├── claude-statusline-duo.omp.json      ← Oh-my-posh theme (two-line layout, default)
+├── claude-statusline-single.omp.json   ← Oh-my-posh theme (single-line layout)
 └── .usage_cache                        ← Auto-generated cache (JSON)
 
 **Note:** OAuth credentials are auto-managed by Claude Code at `~/.claude/.credentials.json` (not part of this repository)

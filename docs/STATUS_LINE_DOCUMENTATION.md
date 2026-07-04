@@ -38,13 +38,14 @@ The custom status line displays:
 
 | File | Purpose |
 |------|---------|
-| `~/.claude/statusline.sh` | Main status line script that processes JSON input and calls oh-my-posh |
-| `~/.claude/update-usage.sh` | Background script that fetches usage data from Code and Pro APIs |
-| `~/.claude/fetch-code-usage.sh` | Fetches Code session tokens using ccusage |
-| `~/.claude/fetch-pro-usage.sh` | Fetches Pro usage percentages from Anthropic OAuth API |
-| `~/.claude/claude-statusline.omp.json` | Oh-my-posh theme configuration defining segments and colors |
+| `~/.claude/oh-my-claude/statusline.sh` | Main status line script that processes JSON input and calls oh-my-posh |
+| `~/.claude/oh-my-claude/update-usage.sh` | Background script that fetches usage data from Code and Pro APIs |
+| `~/.claude/oh-my-claude/fetch-code-usage.sh` | Fetches Code session tokens using ccusage |
+| `~/.claude/oh-my-claude/fetch-pro-usage.sh` | Fetches Pro usage percentages from Anthropic OAuth API |
+| `~/.claude/oh-my-claude/claude-statusline-duo.omp.json` | Oh-my-posh theme for the two-line layout (default) |
+| `~/.claude/oh-my-claude/claude-statusline-single.omp.json` | Oh-my-posh theme for the single-line layout (`OH_MY_CLAUDE_LAYOUT=single`) |
 | `~/.claude/.credentials.json` | OAuth credentials (auto-managed by Claude Code) |
-| `~/.claude/.usage_cache` | JSON cache file storing Code tokens and Pro percentages |
+| `~/.claude/oh-my-claude/.usage_cache` | JSON cache file storing Code tokens and Pro percentages |
 
 ## Status Line Segments
 
@@ -193,7 +194,7 @@ The `.usage_cache` file is in JSON format:
 
 ### Changing Segment Order
 
-Edit `~/.claude/claude-statusline.omp.json` and reorder the `segments` array.
+Edit `~/.claude/oh-my-claude/claude-statusline-duo.omp.json` and reorder the `segments` array.
 
 Current order (left to right):
 1. Path
@@ -257,7 +258,7 @@ cache_timeout=60  # Change to desired seconds (e.g., 120, 300)
      ...
    ```
 
-3. **Add segment** to `claude-statusline.omp.json`:
+3. **Add segment** to `claude-statusline-duo.omp.json` (and `claude-statusline-single.omp.json` if you use that layout):
    ```json
    {
      "type": "text",
@@ -343,7 +344,7 @@ cache_timeout=60  # Change to desired seconds (e.g., 120, 300)
    cache_timeout=120  # Update every 2 minutes instead of 1
    ```
 
-3. **Disable git status** if in a large repo (edit claude-statusline.omp.json to remove git segment)
+3. **Disable git status** if in a large repo (edit claude-statusline-duo.omp.json to remove the git segment)
 
 ## Technical Details
 

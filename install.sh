@@ -123,7 +123,7 @@ download_all_files() {
         echo ""
         echo "Alternative: Clone the repository and use local-install.sh"
         echo "  git clone https://github.com/$GITHUB_REPO.git"
-        echo "  cd oh-my-claude"
+        echo "  cd oh-my-claude-duo"
         echo "  bash local-install.sh"
         exit 1
     fi

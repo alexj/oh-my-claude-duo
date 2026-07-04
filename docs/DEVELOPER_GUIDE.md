@@ -44,7 +44,7 @@ This is a custom status line implementation for Claude Code featuring real-time 
    - Fetches from `https://api.anthropic.com/api/oauth/usage`
    - Returns Pro usage percentages and reset times for 5-hour and 7-day windows
 
-6. **claude-statusline.omp.json** - Oh-my-posh theme configuration
+6. **claude-statusline-duo.omp.json / claude-statusline-single.omp.json** - Oh-my-posh theme configurations (layout selected via OH_MY_CLAUDE_LAYOUT, default: duo)
    - Defines powerline-style segments with colors and icons
    - Reads data from `CLAUDE_*` environment variables
    - Uses oh-my-posh's built-in git segment type (not custom variables)
@@ -94,7 +94,7 @@ bash ~/.claude/oh-my-claude/update-usage.sh --version
 
 ```bash
 # Edit oh-my-posh theme (colors, icons, segment order)
-nano ~/.claude/claude-statusline.omp.json
+nano ~/.claude/oh-my-claude/claude-statusline-duo.omp.json
 
 # View Claude Code settings
 cat ~/.claude/settings.json
@@ -139,7 +139,7 @@ Empty values hide the corresponding segments in the status line.
 
 ### Oh-my-posh Segment Structure
 
-Segments render left-to-right in order defined in `claude-statusline.omp.json`:
+Segments render left-to-right in order defined in the active layout config (`claude-statusline-duo.omp.json` by default):
 1. **Path segment** (type: path, diamond style)
    - Background: `#ff6b35` (orange)
    - Icon: `` (folder)
@@ -223,7 +223,7 @@ bats tests/common.bats
 
 All files install to `~/.claude/oh-my-claude/`:
 - **Scripts**: `common.sh`, `statusline.sh`, `update-usage.sh`, `fetch-code-usage.sh`, `fetch-pro-usage.sh`
-- **Config**: `claude-statusline.omp.json`
+- **Config**: `claude-statusline-duo.omp.json`, `claude-statusline-single.omp.json`
 - **Cache**: `.usage_cache` (auto-generated, don't edit)
 - **Version**: `VERSION` (current version number)
 
